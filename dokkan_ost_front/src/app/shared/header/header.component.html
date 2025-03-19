@@ -1,0 +1,25 @@
+<nav>
+    <div class="logo">
+        <img src="header-logo.gif" alt="">
+        <h1>Dokkan OST</h1>
+    </div>
+    <span (click)="openMenu()">| | |</span>
+    <ul class="desktop">
+        <li>
+            Home
+        </li>
+        <li>Cards</li>
+        <li>Events</li>
+    </ul>
+    @if (isMenuClosed()) {
+    <ul class="mobile">
+        <p (click)="closeMenu()">X</p>
+        <li>
+            Home
+        </li>
+        <li>Cards</li>
+        <li>Events</li>
+    </ul>
+
+    }
+</nav>

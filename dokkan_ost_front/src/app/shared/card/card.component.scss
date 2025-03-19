@@ -1,0 +1,88 @@
+canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%) !important;
+}
+
+#wrapper {
+  height: 94px;
+  width: 94px;
+  //   margin: 200px auto;
+  padding-top: 5px;
+}
+
+#card {
+  position: absolute;
+  top: 43px;
+  left: 50%;
+  max-width: 117px;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+#lr {
+  position: absolute;
+  z-index: 2;
+  bottom: 0px;
+  left: -12px;
+  width: 60px;
+}
+#type {
+  position: absolute;
+  z-index: 2;
+  top: -10px;
+  right: -15px;
+  width: 40px;
+}
+.str {
+  background-image: url("../../../../public/back/cha_base_03_03.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.phy {
+  background-image: url("../../../../public/back/cha_base_04_05.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.teq {
+  background-image: url("../../../../public/back/cha_base_01_05.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.int {
+  background-image: url("../../../../public/back/cha_base_02_05.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.agl {
+  background-image: url("../../../../public/back/cha_base_00_05.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}

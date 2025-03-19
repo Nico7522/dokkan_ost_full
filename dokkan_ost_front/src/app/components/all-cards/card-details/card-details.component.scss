@@ -1,0 +1,168 @@
+h1,
+h2 {
+  text-align: center;
+}
+
+.header {
+  width: 90%;
+  margin: 10px auto;
+  padding: 5px;
+  display: flex;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.artwork {
+  // background: #000;
+  padding-top: 5px;
+  width: 500px;
+  height: 570px;
+  margin: auto;
+}
+
+.artwork-anim {
+  width: 439px;
+  height: 568px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  flex: 1;
+  padding: 10px;
+}
+.art {
+  display: flex;
+  width: 439px;
+  max-width: 100%;
+}
+.card-static-art > img {
+  position: absolute;
+  transform-origin: top left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.phy {
+  background: #b89933;
+}
+
+.teq {
+  background: #3c6628;
+}
+
+.str {
+  background: #8d3933;
+}
+
+.agl {
+  background: #2c6c7c;
+}
+
+.int {
+  background: #6d295e;
+}
+
+.test {
+  position: relative;
+  width: 439px;
+  & img {
+    position: absolute;
+  }
+}
+
+.active-skill {
+  border: 1px solid black;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & button {
+    width: 200px;
+    margin-top: 5px;
+  }
+
+  & h2 {
+    font-family: dokkan;
+  }
+}
+
+.entry {
+  border: 1px solid black;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & button {
+    width: 200px;
+    margin-top: 5px;
+  }
+
+  & h2 {
+    font-family: dokkan;
+  }
+}
+
+/* CSS */
+button {
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+button:hover,
+button:focus {
+  background-color: #a78b94;
+}
+
+@media screen and (max-width: 700px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .artwork {
+    width: 100%;
+    margin: auto;
+    height: auto;
+  }
+  .artwork-anim {
+    width: 300px;
+    height: 400px;
+    margin: auto;
+  }
+  .card {
+  }
+}

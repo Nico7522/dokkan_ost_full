@@ -1,0 +1,42 @@
+@if (card$ | async; as card) {
+<div [class]="'header' ">
+    <div class="artwork">
+        @if (card.isLegendary) {
+        <div class="artwork-anim">
+            <canvas #cardArtwork width="0" height="0"></canvas>
+        </div>
+        } @else {
+        <div class="art">
+            <div class="card-static-art">
+                <img [src]="'bg' + '/' + card.thumb + '/' + 'card_' + card.thumb + '_bg.png'" alt="">
+                <img [src]="'bg' + '/' + card.thumb + '/' + 'card_' + card.thumb + '_character.png'" alt="">
+                <img [src]="'bg' + '/' + card.thumb + '/' + 'card_' + card.thumb + '_effect.png'" alt="">
+            </div>
+        </div>
+        <!-- <div class="test">
+            <img src="bg/1023490/card_1023490_bg.png" alt="">
+            <img src="bg/1023490/card_1023490_character.png" alt="">
+            <img src="bg/1023490/card_1023490_effect.png" alt="">
+        </div> -->
+        }
+
+    </div>
+    <div class="card">
+        <app-card [card]="card" />
+        <h2>{{card.name}}</h2>
+        <div class="entry">
+            <h2>Intro</h2>
+            <button (click)="playOst()" [class]="card.type.toLowerCase()">{{ostText()}}</button>
+            <button [class]="card.type.toLowerCase()">Play OST + Animation</button>
+            <audio #audio id="ost">
+                <source src="bgm/bgm_172.wav" type="audio/mpeg" />
+            </audio>
+        </div>
+        <div class="active-skill">
+            <h2>Active Skill</h2>
+            <button [class]="card.type.toLowerCase()">Play OST</button>
+            <button [class]="card.type.toLowerCase()">Play OST + Animation</button>
+        </div>
+    </div>
+</div>
+}

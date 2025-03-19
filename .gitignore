@@ -1,0 +1,9 @@
+./feed_api/db03042025.db
+./feed_api/db20251703.db
+./feed_api/wav_from_bgm
+./feed_api/wav_from_sample
+./dokkan_ost_back/.env
+./dokkan_ost_back/node_modules
+./dokkan_ost_front/node_modules
+./dokkan_ost_front/public/thumbs
+./dokkan_ost_front/public/bg

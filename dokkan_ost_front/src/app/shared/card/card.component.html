@@ -1,0 +1,15 @@
+<div id="total" (click)="goToDetails()">
+    <div id="wrapper">
+        <div [class]="card().type.toLowerCase()">
+            <img id="card" src="./thumbs/card_{{card().thumb}}_thumb.png" alt="">
+            <!-- <img id="lr" src="./icons/cha_rare_lr.webp" alt="">
+            <img id="type" src="./icons/cha_type_icon_23.png" alt=""> -->
+            @if (card().isLegendary) {
+            <canvas #cardRef width="120" height="120"></canvas>
+
+            }
+
+        </div>
+    </div>
+
+</div>

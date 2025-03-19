@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: dokkan;
+  src: url("./assets/fonts/Helvetica_Neue_97_Black_Condensed_Oblique.otf")
+    format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: black;
+  color: white;
+  min-height: 100vh;
+}
