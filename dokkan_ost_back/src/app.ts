@@ -12,7 +12,7 @@ import finishSkillRoutes from "./routes/finish_skill_routes";
 // import todoRoutes from "./routes";
 
 const app = express();
-const port = 3000;
+const port = 3200;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(

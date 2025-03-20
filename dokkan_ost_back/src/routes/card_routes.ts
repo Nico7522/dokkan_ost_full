@@ -17,9 +17,12 @@ cardRoutes.get("/cards", async (req: Request, res: Response) => {
 cardRoutes.get("/cards/:id", async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const text = "SELECT * FROM cards WHERE id = $1";
+    const text =
+      "SELECT * FROM cards JOIN entrances ON cards.id = entrances.card_id JOIN active_skills ON active_skills.card_id = cards.id WHERE cards.id = $1";
     const values = [id];
     const results = await pool.query(text, values);
+    console.log(results.rows[0]);
+
     res.json(results.rows[0]);
   } catch (error) {
     console.error(error);
