@@ -24,12 +24,15 @@ export class CardDetailsComponent {
   private readonly cardService = inject(CardsService);
   private readonly spinnerService = inject(NgxSpinnerService);
   lwfInstance: any;
-  ostText = signal('Play OST');
+  entranceOstText = signal('Play OST');
+  activeSkillOstText = signal('Play OST');
   thumb = signal(0);
   @ViewChild('cardArtwork', { static: false })
   canvasRef!: ElementRef<HTMLCanvasElement>;
-  @ViewChild('audio', { static: false })
-  audioRef!: ElementRef<HTMLAudioElement>;
+  @ViewChild('entranceOst', { static: false })
+  entranceAudioRef!: ElementRef<HTMLAudioElement>;
+  @ViewChild('activeSkillOst', { static: false })
+  activeSkillOstRef!: ElementRef<HTMLAudioElement>;
   id = input<string>('');
   card$ = toObservable(this.id).pipe(
     switchMap((id) => {
@@ -104,19 +107,35 @@ export class CardDetailsComponent {
     requestAnimationFrame(this.animate);
   };
 
-  playOst() {
-    const audio = this.audioRef.nativeElement;
+  playEntranceOst() {
+    const audio = this.entranceAudioRef.nativeElement;
 
-    if (audio && this.ostText() === 'Play OST') {
+    if (audio && this.entranceOstText() === 'Play OST') {
       audio.volume = 0.03;
       audio.loop = true;
       audio.play();
-      this.ostText.set('Pause OST');
+      this.entranceOstText.set('Pause OST');
     } else {
       audio.volume = 0.03;
       audio.loop = true;
       audio.pause();
-      this.ostText.set('Play OST');
+      this.entranceOstText.set('Play OST');
+    }
+  }
+
+  playActiveSkillOst() {
+    const audio = this.activeSkillOstRef.nativeElement;
+
+    if (audio && this.activeSkillOstText() === 'Play OST') {
+      audio.volume = 0.03;
+      audio.loop = true;
+      audio.play();
+      this.activeSkillOstText.set('Pause OST');
+    } else {
+      audio.volume = 0.03;
+      audio.loop = true;
+      audio.pause();
+      this.activeSkillOstText.set('Play OST');
     }
   }
 }

@@ -26,16 +26,19 @@
         <h2>{{card.name}}</h2>
         <div class="entry">
             <h2>Intro</h2>
-            <button (click)="playOst()" [class]="card.type.toLowerCase()">{{ostText()}}</button>
+            <button (click)="playEntranceOst()" [class]="card.type.toLowerCase()">{{entranceOstText()}}</button>
             <button [class]="card.type.toLowerCase()">Play OST + Animation</button>
-            <audio #audio id="ost">
+            <audio #entranceOst id="entranceOst">
                 <source [src]="'bgm/' + 'bgm_' + card.entranceBgmId + '.wav'" type="audio/mpeg" />
             </audio>
         </div>
         <div class="active-skill">
             <h2>Active Skill</h2>
-            <button [class]="card.type.toLowerCase()">Play OST</button>
+            <button (click)="playActiveSkillOst()" [class]="card.type.toLowerCase()">{{activeSkillOstText()}}</button>
             <button [class]="card.type.toLowerCase()">Play OST + Animation</button>
+            <audio #activeSkillOst id="activeSkillOst">
+                <source [src]="'bgm/' + 'bgm_' + card.asBgmId + '.wav'" type="audio/mpeg" />
+            </audio>
         </div>
     </div>
 </div>
