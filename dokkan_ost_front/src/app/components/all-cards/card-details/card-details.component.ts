@@ -107,35 +107,45 @@ export class CardDetailsComponent {
     requestAnimationFrame(this.animate);
   };
 
-  playEntranceOst() {
-    const audio = this.entranceAudioRef.nativeElement;
+  playOst(type: 'entrance' | 'activeSkill') {
+    const entranceAudio = this.entranceAudioRef.nativeElement;
+    const activeSkillAudio = this.activeSkillOstRef.nativeElement;
+    console.log(activeSkillAudio.played);
 
-    if (audio && this.entranceOstText() === 'Play OST') {
-      audio.volume = 0.03;
-      audio.loop = true;
-      audio.play();
-      this.entranceOstText.set('Pause OST');
-    } else {
-      audio.volume = 0.03;
-      audio.loop = true;
-      audio.pause();
-      this.entranceOstText.set('Play OST');
+    if (type === 'entrance') {
+      if (entranceAudio && this.entranceOstText() === 'Play OST') {
+        entranceAudio.volume = 0.03;
+        entranceAudio.loop = true;
+        entranceAudio.play();
+        if (activeSkillAudio.played.length > 0) {
+          activeSkillAudio.pause();
+          this.activeSkillOstText.set('Play OST');
+        }
+        this.entranceOstText.set('Pause OST');
+      } else {
+        entranceAudio.volume = 0.03;
+        entranceAudio.loop = true;
+        entranceAudio.pause();
+        this.entranceOstText.set('Play OST');
+      }
     }
-  }
 
-  playActiveSkillOst() {
-    const audio = this.activeSkillOstRef.nativeElement;
-
-    if (audio && this.activeSkillOstText() === 'Play OST') {
-      audio.volume = 0.03;
-      audio.loop = true;
-      audio.play();
-      this.activeSkillOstText.set('Pause OST');
-    } else {
-      audio.volume = 0.03;
-      audio.loop = true;
-      audio.pause();
-      this.activeSkillOstText.set('Play OST');
+    if (type === 'activeSkill') {
+      if (activeSkillAudio && this.activeSkillOstText() === 'Play OST') {
+        activeSkillAudio.volume = 0.03;
+        activeSkillAudio.loop = true;
+        activeSkillAudio.play();
+        if (entranceAudio.played.length > 0) {
+          entranceAudio.pause();
+          this.entranceOstText.set('Play OST');
+        }
+        this.activeSkillOstText.set('Pause OST');
+      } else {
+        activeSkillAudio.volume = 0.03;
+        activeSkillAudio.loop = true;
+        activeSkillAudio.pause();
+        this.activeSkillOstText.set('Play OST');
+      }
     }
   }
 }
