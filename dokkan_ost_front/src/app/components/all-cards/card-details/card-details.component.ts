@@ -28,7 +28,7 @@ export class CardDetailsComponent {
   activeSkillOstText = signal('Play OST');
   thumb = signal(0);
   @ViewChild('cardArtwork', { static: false })
-  canvasRef!: ElementRef<HTMLCanvasElement>;
+  canvasRef!: ElementRef<HTMLCanvasElement> | null;
   @ViewChild('entranceOst', { static: false })
   entranceAudioRef!: ElementRef<HTMLAudioElement>;
   @ViewChild('activeSkillOst', { static: false })
@@ -48,42 +48,42 @@ export class CardDetailsComponent {
 
   loadArtwork() {
     setTimeout(() => {
-      console.log(this.thumb());
-      const canvas = this.canvasRef.nativeElement;
-      // Vérifiez si le canvas existe
-      if (!canvas) {
-        console.error('Canvas non trouvé');
-        return;
-      }
-      // Utiliser LWF pour initialiser l'animation
-      LWF.useCanvasRenderer();
-      LWF.ResourceCache.get().loadLWF({
-        lwf: `card_${this.thumb().toString()}.lwf`,
-        prefix: './artworks/' + this.thumb().toString() + '/',
+      if (this.canvasRef) {
+        const canvas = this.canvasRef.nativeElement;
+        // Vérifiez si le canvas existe
+        if (!canvas) {
+          console.error('Canvas non trouvé');
+          return;
+        }
+        // Utiliser LWF pour initialiser l'animation
+        LWF.useCanvasRenderer();
+        LWF.ResourceCache.get().loadLWF({
+          lwf: `card_${this.thumb().toString()}.lwf`,
+          prefix: './artworks/' + this.thumb().toString() + '/',
 
-        stage: canvas,
-        onload: (loadedLwfInstance: any) => {
-          this.lwfInstance = loadedLwfInstance;
-          this.canvasRef.nativeElement.classList.add('artwork-anim');
-          console.log(this.lwfInstance);
-          const attachedMovie = this.lwfInstance.rootMovie.attachMovie(
-            'ef_001',
-            'battle',
-            0
-          );
-          if (attachedMovie) {
-            attachedMovie.moveTo(
-              this.lwfInstance.width / 2,
-              this.lwfInstance.height / 2
+          stage: canvas,
+          onload: (loadedLwfInstance: any) => {
+            this.lwfInstance = loadedLwfInstance;
+            this.canvasRef?.nativeElement.classList.add('artwork-anim');
+            const attachedMovie = this.lwfInstance.rootMovie.attachMovie(
+              'ef_001',
+              'battle',
+              0
             );
-          }
-          this.lwfInstance.width / 1.5, this.lwfInstance.height / 2;
-          this.animate();
-        },
-        onerror: (error: any) => {
-          console.error('Erreur lors du chargement de LWF :', error);
-        },
-      });
+            if (attachedMovie) {
+              attachedMovie.moveTo(
+                this.lwfInstance.width / 2,
+                this.lwfInstance.height / 2
+              );
+            }
+            this.lwfInstance.width / 1.5, this.lwfInstance.height / 2;
+            this.animate();
+          },
+          onerror: (error: any) => {
+            console.error('Erreur lors du chargement de LWF :', error);
+          },
+        });
+      }
     }, 500);
   }
   previousTick = 0;
@@ -110,7 +110,6 @@ export class CardDetailsComponent {
   playOst(type: 'entrance' | 'activeSkill') {
     const entranceAudio = this.entranceAudioRef.nativeElement;
     const activeSkillAudio = this.activeSkillOstRef.nativeElement;
-    console.log(activeSkillAudio.played);
 
     if (type === 'entrance') {
       if (entranceAudio && this.entranceOstText() === 'Play OST') {

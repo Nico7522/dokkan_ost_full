@@ -27,7 +27,6 @@ export class CardComponent {
   previousTick = 0;
 
   ngAfterViewInit() {
-    console.log('afterView', this.card());
     if (this.card().isLegendary) {
       const canvas = this.canvasRef.nativeElement;
 

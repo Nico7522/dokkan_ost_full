@@ -15,10 +15,8 @@ export class CardsService {
   }
 
   getCardById(id: number) {
-    console.log(id);
-
-    return this._httpClient
-      .get<CardDetails>('http://localhost:3200/cards/' + id)
-      .pipe(tap((x) => console.log(x)));
+    return this._httpClient.get<CardDetails>(
+      'http://localhost:3200/cards/' + id
+    );
   }
 }

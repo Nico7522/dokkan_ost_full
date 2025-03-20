@@ -24,6 +24,7 @@
     <div class="card">
         <app-card [card]="card" />
         <h2>{{card.name}}</h2>
+        @if (card.entranceBgmId) {
         <div class="entry">
             <h2>Intro</h2>
             <button (click)="playOst('entrance')" [class]="card.type.toLowerCase()">{{entranceOstText()}}</button>
@@ -32,6 +33,8 @@
                 <source [src]="'bgm/' + 'bgm_' + card.entranceBgmId + '.wav'" type="audio/mpeg" />
             </audio>
         </div>
+        }
+        @if (card.asBgmId) {
         <div class="active-skill">
             <h2>Active Skill</h2>
             <button (click)="playOst('activeSkill')" [class]="card.type.toLowerCase()">{{activeSkillOstText()}}</button>
@@ -40,6 +43,8 @@
                 <source [src]="'bgm/' + 'bgm_' + card.asBgmId + '.wav'" type="audio/mpeg" />
             </audio>
         </div>
+
+        }
     </div>
 </div>
 }
