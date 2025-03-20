@@ -29,6 +29,22 @@ nav {
   }
 }
 
+.logo-img {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  & img {
+    width: 95%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+}
+img.headphone {
+  margin-top: -5px;
+}
 span {
   display: none;
   margin-right: 20px;

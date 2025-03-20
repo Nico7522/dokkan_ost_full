@@ -1,14 +1,18 @@
 <nav>
     <div class="logo">
-        <img src="header-logo.gif" alt="">
+        <div class="logo-img">
+            <img src="db.png" alt="">
+            <img class="headphone" src="headphone.jpg" alt="">
+        </div>
+
         <h1>Dokkan OST</h1>
     </div>
     <span (click)="openMenu()">| | |</span>
     <ul class="desktop">
-        <li>
+        <li routerLink="/">
             Home
         </li>
-        <li>Cards</li>
+        <li routerLink="/cards">Cards</li>
         <li>Events</li>
     </ul>
     @if (isMenuClosed()) {
