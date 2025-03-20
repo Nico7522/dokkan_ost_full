@@ -13,10 +13,11 @@ import { AsyncPipe } from '@angular/common';
 import { CardComponent } from '../../../shared/card/card.component';
 import { keysToCamel } from '../../../helpers/helpers';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AnimationComponent } from '../../../shared/animation/animation.component';
 @Component({
   selector: 'app-card-details',
   standalone: true,
-  imports: [AsyncPipe, CardComponent],
+  imports: [AsyncPipe, CardComponent, AnimationComponent],
   templateUrl: './card-details.component.html',
   styleUrl: './card-details.component.scss',
 })
