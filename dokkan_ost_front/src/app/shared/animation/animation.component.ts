@@ -40,7 +40,7 @@ export class AnimationComponent {
   }
 
   ngAfterViewInit() {
-    this.loadAnimation();
+    // this.loadAnimation();
   }
 
   loadAnimation() {
