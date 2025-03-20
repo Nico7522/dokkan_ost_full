@@ -10,6 +10,7 @@ import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 export class AnimationComponent {
   previousTick = 0;
   lwfInstance: any;
+  body = document.querySelector('body') as HTMLBodyElement;
   @ViewChild('cardIntro', { static: false })
   canvasRef!: ElementRef<HTMLCanvasElement>;
   getDelta() {
@@ -40,7 +41,12 @@ export class AnimationComponent {
   }
 
   ngAfterViewInit() {
-    // this.loadAnimation();
+    this.body.classList.add('no-scroll');
+    this.loadAnimation();
+  }
+
+  ngOnDestroy() {
+    this.body.classList.remove('no-scroll');
   }
 
   loadAnimation() {
