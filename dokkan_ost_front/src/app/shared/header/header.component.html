@@ -9,10 +9,10 @@
     </div>
     <span (click)="openMenu()">| | |</span>
     <ul class="desktop">
-        <li routerLink="/">
+        <li [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/home">
             Home
         </li>
-        <li routerLink="/cards">Cards</li>
+        <li [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" routerLink="/cards">Cards</li>
         <li>Events</li>
     </ul>
     @if (isMenuClosed()) {
