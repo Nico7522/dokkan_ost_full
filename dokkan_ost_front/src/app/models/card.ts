@@ -6,3 +6,8 @@ export interface Card {
   thumb: number;
   isLegendary: boolean;
 }
+
+export interface CardDetails extends Card {
+  entranceBgmId: number | null;
+  asBgmId: number | null;
+}

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { Card } from '../../models/card';
+import { Card, CardDetails } from '../../models/card';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class CardsService {
     console.log(id);
 
     return this._httpClient
-      .get<any>('http://localhost:3200/cards/' + id)
+      .get<CardDetails>('http://localhost:3200/cards/' + id)
       .pipe(tap((x) => console.log(x)));
   }
 }

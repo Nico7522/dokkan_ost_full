@@ -29,7 +29,7 @@
             <button (click)="playOst()" [class]="card.type.toLowerCase()">{{ostText()}}</button>
             <button [class]="card.type.toLowerCase()">Play OST + Animation</button>
             <audio #audio id="ost">
-                <source src="bgm/bgm_172.wav" type="audio/mpeg" />
+                <source [src]="'bgm/' + 'bgm_' + card.entranceBgmId + '.wav'" type="audio/mpeg" />
             </audio>
         </div>
         <div class="active-skill">
