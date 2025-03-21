@@ -1,8 +1,8 @@
--- Sélectionne toutes les cartes avec leur active skill avec leur bgm_id
+-- Sélectionne les données pour les active skills
 SELECT * FROM (
 SELECT cards.id as 'card_id', cards.name AS 'card_name', active_skill_sets.name AS 'as_name', active_skill_sets.id AS 'as_id', active_skill_sets.bgm_id FROM active_skill_sets
 JOIN card_active_skills ON active_skill_sets.id = card_active_skills.active_skill_set_id
-JOIN cards ON card_active_skills.card_id = cards.id WHERE bgm_id IS NOT NULL ORDER BY cards.id DESC) GROUP BY bgm_id
+JOIN cards ON card_active_skills.card_id = cards.id WHERE bgm_id IS NOT NULL ORDER BY cards.id DESC) WHERE card_id = 1031081 GROUP BY bgm_id 
 
 
 SELECT cards.id as 'card_id', cards.name AS 'card_name', active_skill_sets.name AS 'as_name', active_skill_sets.id AS 'as_id', active_skill_sets.bgm_id FROM active_skill_sets
@@ -21,6 +21,7 @@ GROUP BY finish_skill_bgm_id
 SELECT * FROM (SELECT cards.id AS 'card_id', cards.name AS 'card_name', card_standby_skill_set_relations.standby_skill_set_id AS 'standby_skill_id', standby_skill_set_finish_skill_set_relations.finish_skill_set_id AS 'finish_skill_id', standby_skill_sets.bgm_id AS 'standby_bgm_id', finish_skill_sets.name AS 'finish_name', finish_skill_sets.bgm_id AS 'finish_skill_bgm_id'  FROM cards JOIN card_standby_skill_set_relations ON cards.id = card_standby_skill_set_relations.card_id JOIN standby_skill_sets ON card_standby_skill_set_relations.standby_skill_set_id = standby_skill_sets.id JOIN standby_skill_set_finish_skill_set_relations ON standby_skill_set_finish_skill_set_relations.standby_skill_set_id = standby_skill_sets.id JOIN finish_skill_sets ON standby_skill_set_finish_skill_set_relations.finish_skill_set_id = finish_skill_sets.id ORDER BY cards.id DESC)  GROUP BY finish_skill_bgm_id 
 
 
+-- Sélectionne les données pour les entrées
 SELECT * FROM (SELECT cards.id, passive_skill_effects.bgm_id, cards.name, cards.open_at, 
 passive_skills.passive_skill_effect_id
 FROM cards JOIN passive_skills
@@ -30,6 +31,7 @@ ON passive_skills.passive_skill_effect_id = passive_skill_effects.id
 AND passive_skill_effects.bgm_id 
 IS NOT NULL 
 ORDER BY cards.id DESC)
+WHERE id = 1031081
 GROUP BY passive_skill_effect_id 
 
 SELECT rarity FROM cards WHERE id = 1020991
